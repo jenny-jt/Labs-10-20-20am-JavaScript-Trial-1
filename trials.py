@@ -1,5 +1,6 @@
 """Python functions for JavaScript Trials 1."""
 
+import doctest
 
 def output_all_items(items):
     """ Print each item in the given array
@@ -8,6 +9,7 @@ def output_all_items(items):
     """
     for item in items:
         print(item)
+
 
 def get_all_evens(nums):
     """given list of nums, return list of even nums
@@ -21,27 +23,74 @@ def get_all_evens(nums):
             even_nums.append(num)
     return even_nums
 
+
 def get_odd_indices(items):
+    """given list of items, return all elements at odd numbered indices.
+    >>> get_odd_indices([1, 'hello', 'true', 500])
+        ['hello', 500]
+    """
+
     result = []
     for idx in range(len(items)):
         if idx % 2 != 0:
             result.append(items[idx])
     return result
 
+
 def print_as_numbered_list(items):
-    pass  # TODO: replace this line with your code
+    """Given an array, output a numbered list.
+    >>> items = [1, 'hello', 'true']
+    >>> print_as_numbered_list(items)
+    1. 1
+    2. hello
+    3. true
+    """
+    
+    for i, item in enumerate(items):
+        print(f"{i+1}. {item}")
 
 
 def get_range(start, stop):
-    pass  # TODO: replace this line with your code
-
+    """ Return an array of numbers in a certain range. 
+    >>> get_range(0,5)
+    [0, 1, 2, 3, 4]
+    >>> get_range(1,3)
+    [1, 2]
+    """
+    nums = []
+    for num in range(start,stop):
+        nums.append(num)
+    
+    return nums
 
 def censor_vowels(word):
-    pass  # TODO: replace this line with your code
-
+    """ Given a string, return a string where vowels are replaced with '*'.
+    >>> word = 'hello world'
+    >>> censor_vowels(word)
+    'h*ll* w*rld'
+   """
+    vowels = ["a", "e", "i", "o", "u"]
+    censor = []
+    for char in word:
+        if char in vowels:
+            censor.append("*")
+        else:
+            censor.append(char)
+    return "".join(censor)
+            
 
 def snake_to_camel(string):
-    pass  # TODO: replace this line with your code
+    """Given a string in snake case, return a string in upper camel case.
+    >>> string = 'hello_world'
+    >>> print(snake_to_camel(string))
+    HelloWorld
+    """
+    camel_case = []
+    split_string = string.split('_')
+    
+    for word in split_string:
+        camel_case.append(word.title())
+    return "".join(camel_case)
 
 
 def longest_word_length(words):
