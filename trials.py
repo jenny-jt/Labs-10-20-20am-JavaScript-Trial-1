@@ -144,4 +144,25 @@ def has_balanced_parens(string):
 
 
 def compress(string):
-    pass  # TODO: replace this line with your code
+    """ Return a compressed version of the given string.
+    >>> string = 'aabbaabb'
+    >>> compress(string)
+    'Hel2o, world! Cows go mo4.3'
+    """
+
+    compressed = []
+    curr_char = ""
+    char_count = 0
+    
+    if char_count>1:
+        compressed.append(str(char_count))
+
+    return "".join(compressed) 
+    return "".join(compressed)
+
+
+if __name__ == '__main__':
+    import doctest
+    result = doctest.testmod()
+    if result.failed == 0:
+        print('ALL TESTS PASSED') 
