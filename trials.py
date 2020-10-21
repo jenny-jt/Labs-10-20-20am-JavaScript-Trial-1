@@ -1,12 +1,14 @@
 """Python functions for JavaScript Trials 1."""
 
-import doctest
-
 def output_all_items(items):
     """ Print each item in the given array
-        >>> items = [1, 'hello', 'true']
-        >>> output_all_items(items)
+    >>> items = [1, 'hello', 'true']
+    >>> output_all_items(items)
+    1
+    hello
+    true
     """
+    
     for item in items:
         print(item)
 
@@ -15,7 +17,7 @@ def get_all_evens(nums):
     """given list of nums, return list of even nums
     >>> nums = [7, 8, 10, 1, 2, 2]
     >>> get_all_evens(nums)
-        [8, 10, 2, 2]
+    [8, 10, 2, 2]
     """
     even_nums = []
     for num in nums:
@@ -27,7 +29,7 @@ def get_all_evens(nums):
 def get_odd_indices(items):
     """given list of items, return all elements at odd numbered indices.
     >>> get_odd_indices([1, 'hello', 'true', 500])
-        ['hello', 500]
+    ['hello', 500]
     """
 
     result = []
@@ -68,7 +70,7 @@ def censor_vowels(word):
     >>> word = 'hello world'
     >>> censor_vowels(word)
     'h*ll* w*rld'
-   """
+    """
     vowels = ["a", "e", "i", "o", "u"]
     censor = []
     for char in word:
@@ -127,6 +129,7 @@ def truncate(string):
 
     return "".join(result)
 
+
 def has_balanced_parens(string):
     """Return true if all parentheses in a given string are balanced.
 
@@ -142,10 +145,15 @@ def has_balanced_parens(string):
     #     return False
 
 
-
 def compress(string):
     """ Return a compressed version of the given string.
     >>> string = 'aabbaabb'
+    >>> compress(string)
+    'a2b2a2b2'
+    >>> string = 'abc'
+    >>> compress(string)
+    'abc'
+    >>> string = 'Hello, world! Cows go moooo...'
     >>> compress(string)
     'Hel2o, world! Cows go mo4.3'
     """
@@ -153,11 +161,22 @@ def compress(string):
     compressed = []
     curr_char = ""
     char_count = 0
-    
+
+    for char in string:
+        if char != curr_char:
+            compressed.append(curr_char)
+            if char_count > 1:
+                compressed.append(str(char_count))
+            
+            curr_char = char
+            char_count = 0
+
+        char_count += 1
+
+    compressed.append(curr_char)
     if char_count>1:
         compressed.append(str(char_count))
 
-    return "".join(compressed) 
     return "".join(compressed)
 
 
