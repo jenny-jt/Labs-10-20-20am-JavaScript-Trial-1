@@ -94,15 +94,53 @@ def snake_to_camel(string):
 
 
 def longest_word_length(words):
-    pass  # TODO: replace this line with your code
+    """Return the length of the longest word in the given array of words.
+    >>> words = ['hello', 'world']
+    >>> longest_word_length(words)
+    5
+    >>> words = ['jellyfish', 'zebra']
+    >>> longest_word_length(words)
+    9
+    """
+
+    length_of_words = []
+    for word in words:
+        length_of_words.append(len(word))
+    length_of_words.sort()
+    return length_of_words[-1]
 
 
 def truncate(string):
-    pass  # TODO: replace this line with your code
+    """Truncate repeating characters into one character.
+    >>> string = 'aaaabbbbcccca'
+    >>> truncate(string)
+    'abca'
+    >>> string = 'hi***!!!! wooow'
+    >>> truncate(string)
+    'hi*! wow'
+    """
+    result = []
 
+    for char in string:
+        if (len(result) == 0) or (char != result[len(result)-1]):
+            result.append(char)
+
+    return "".join(result)
 
 def has_balanced_parens(string):
-    pass  # TODO: replace this line with your code
+    """Return true if all parentheses in a given string are balanced.
+
+    """
+    par = 0
+    for char in string:
+        if char == "(":
+            par += 1
+        elif char == ")":
+            par -= 1
+    return par == 0
+    # if par != 0:
+    #     return False
+
 
 
 def compress(string):

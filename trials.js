@@ -188,7 +188,7 @@ function hasBalancedParens(string) {
     }
   }
 
-  return parens < 0;
+  return parens === 0;
 }
 
 
